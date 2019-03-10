@@ -10,7 +10,6 @@ var Altum=function altum() {
 }
 var CurrentPID = ""
 var Host = 'http://altumanalytics.com:9800/'
-//var Host = 'http://localhost:9800/'
 Altum.loglong = function loglong(pid,idp,eventtype,groupJson,aditiondata) {
       (async () => {
         fetch(Host, {
