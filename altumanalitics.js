@@ -8,7 +8,9 @@
 // }
 var Altum=function altum() {
 }
-var Host = 'http://altumanalytics.com:9800'
+var CurrentPID = ""
+var Host = 'http://altumanalytics.com:9800/'
+//var Host = 'http://localhost:9800/'
 Altum.loglong = function loglong(pid,idp,eventtype,groupJson,aditiondata) {
       (async () => {
         fetch(Host, {
@@ -23,7 +25,7 @@ Altum.loglong = function loglong(pid,idp,eventtype,groupJson,aditiondata) {
       })();
     }
 Altum.init = function init(pid) {
-  Altum.PID=pid
+  CurrentPID=pid
 }
 Altum.log = function log(idp, eventtype, aditiondata) {
   (async () => {
@@ -34,7 +36,7 @@ Altum.log = function log(idp, eventtype, aditiondata) {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ productid: Altum.pid, id: idp, count: 1, event: eventtype, group: "", data: aditiondata })
+      body: JSON.stringify({ productid: CurrentPID, id: idp, count: 1, event: eventtype, group: "", data: aditiondata })
     });
   })();
 }
